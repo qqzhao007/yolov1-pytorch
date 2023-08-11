@@ -1,7 +1,7 @@
 # yolov1-pytorch
 [简体中文](README-zh)
 
-This repo is a pytorch implementation of yolov1 model. (paper reproduction)
+This repo is a pytorch-implementation of yolov1 model. (paper reproduction)
 
 * the repo references https://github.com/ivanwhaf/yolov1-pytorch
 * Paper: [https://arxiv.org/pdf/1506.02640.pdf](https://arxiv.org/pdf/1506.02640v5.pdf)
