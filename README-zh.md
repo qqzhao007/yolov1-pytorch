@@ -1,4 +1,4 @@
-# yolov1-pytorch
+# yolov1-pytorch(简体中文)
 
 本仓库是基于pytorch的yolov1，可以视为论文的复现
 
