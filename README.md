@@ -9,7 +9,7 @@ This repo is a pytorch implementation of yolov1 model. (paper reproduction)
 
 ## Run in command line
 
-`detect.py` runs inference on a variety of sources, cd your project path and type:
+`inference.py` runs inference on a variety of sources, cd your project path and type:
 
 ```bash
 $ python inference.py -w weights/last.pth --source 0  # if 0, use your own camera
