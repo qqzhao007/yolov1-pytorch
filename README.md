@@ -1,5 +1,5 @@
 # yolov1-pytorch
-[简体中文](README-zh)
+[简体中文](README-zh.md)
 
 This repo is a pytorch-implementation of yolov1 model. (paper reproduction)
 
