@@ -13,7 +13,7 @@ parser.add_argument('--cfg', '-c', default='cfg/yolov1.yaml', help='YOLOv1 confi
 parser.add_argument('--dataset_cfg', '-d', default='cfg/dataset.yaml', help='dataset config file path')
 parser.add_argument('--weight', '-w', default='', help='pretrained model weight file path')
 parser.add_argument('--output', '-o', default='output', help='output path')
-parser.add_argument('--epochs', '-e', default=1, help='training epochs', type=int)
+parser.add_argument('--epochs', '-e', default=100, help='training epochs', type=int)
 parser.add_argument('--lr', '-l', default=0.002, help='training learning rate', type=float)
 parser.add_argument('--batch_size', '-bs', default=32, help='training batch size', type=int)
 parser.add_argument('--save_freq', '-sq', default=10, help='frequency of saving model checkpoint while training', type=int)
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     
     test(model, test_loader, device, S, B)
 
-    torch.save(model.state_dict(), os.path.join(output_path, 'last.pth'))
+    torch.save(model.state_dict(), os.path.join('weights/', 'last.pth'))
 
     fig = plt.figure()
     plt.plot(range(args.epochs), train_loss_lst, 'g', label='train loss')

@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 def modify_voc2007_label():
     # 将VOC2007数据集标签改写为yolo格式
-    CLASSES = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep',     'aeroplane', 'bicycle', 'boat', 'bus', 'car','motorbike', 'train', 'bottle', 'chair', 'dining table', 'potted plant', 'sofa', 'tvmonitor']
+    CLASSES = ['person', 'bird', 'cat', 'cow', 'dog', 'horse', 'sheep', 'aeroplane', 'bicycle', 'boat', 'bus', 'car','motorbike', 'train', 'bottle', 'chair', 'dining table', 'potted plant', 'sofa', 'tvmonitor']
 
     xml_path = './dataset/VOC2007/Annotations'
     xml_names = os.listdir(xml_path)
