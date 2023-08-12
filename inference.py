@@ -12,7 +12,7 @@ from utils import parse_cfg, pred2xywhcc, build_model
 parser = argparse.ArgumentParser(description='YOLOv1 pytorch implementation')
 parser.add_argument('--weights','-w',default='weights/last.pth',help='path  of model weight')
 parser.add_argument('--source','-s',default="dataset/VOC2007/JPEGImages",help="Path of your input file source,0 for webcam")
-parser.add_argument('--result', "-r", default='result', help='Output folder')
+parser.add_argument('--output', "-o", default='output', help='Output folder')
 parser.add_argument("--cfg", "-c", default="cfg/yolov1.yaml", help="Your model config path")
 parser.add_argument("--dataset_cfg", "-d", default="cfg/dataset.yaml", help="Your dataset config path", type=str)
 parser.add_argument('--cam_width', "-cw", default=848, help='camera width', type=int)
@@ -47,7 +47,7 @@ def predict_img(img, model, input_size, S, B, num_classes, conf_thresh, iou_thre
         transforms.ToTensor()
     ])
     pred_img = transform(pred_img)
-    pred_img.unsqussze_(0)
+    pred_img.unsqueeze_(0)
 
     pred = model(pred_img)[0].detach().cpu()
     xywhc = pred2xywhcc(pred, S, B, num_classes, conf_thresh, iou_thresh)
