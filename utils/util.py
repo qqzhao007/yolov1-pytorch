@@ -49,13 +49,13 @@ def pred2xywhcc(pred, S, B, num_classes, conf_thresh, iou_thresh):
                 bboxs[(x * S + y), 0:4] = torch.Tensor([
                     pred[x, y, 0], pred[x, y, 1], pred[x, y, 2], pred[x, y, 3]])
                 bboxs[((x * S + y)), 4] = pred[x, y, 4]
-                bboxs[((x * S + y)), 5] = pred[x, y, 10:]
+                bboxs[((x * S + y)), 5:] = pred[x, y, 10:]
 
             else:
                 bboxs[(x * S + y), 0:4] = torch.Tensor([
                     pred[x, y, 5], pred[x, y, 6], pred[x, y, 7], pred[x, y, 8]])
                 bboxs[((x * S + y)), 4] = pred[x, y, 9]
-                bboxs[((x * S + y)), 5] = pred[x, y, 10:]
+                bboxs[((x * S + y)), 5:] = pred[x, y, 10:]
 
     # 非极大值抑制
     xywhcc = nms(bboxs, num_classes, conf_thresh, iou_thresh)
@@ -95,7 +95,7 @@ def nms(bboxs, num_classes, conf_thresh = 0.1, iou_thresh = 0.3):
     
     ret[:, 0:4] = bboxs[:, 0:4]
     ret[:, 4] = torch.max(bboxs_cls_spec_conf, dim=1).values
-    ret[:, 5] = torch.argmax(bboxs[:, 5], dim=1).int()
+    ret[:, 5] = torch.argmax(bboxs[:, 5:], dim=1).int()
 
     return ret
 

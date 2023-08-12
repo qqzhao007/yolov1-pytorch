@@ -80,7 +80,7 @@ if __name__ == '__main__':
             img = draw_bbox(img, xywhcc, class_names)
             cv2.imwrite(os.path.join(args.output, img_name), img)
 
-    elif source.split('')[-1] in ['mp4', 'avi', 'mkv', 'flv', 'rmvb', 'mov', 'rm']:
+    elif source.split('.')[-1] in ['mp4', 'avi', 'mkv', 'flv', 'rmvb', 'mov', 'rm']:
         cap = cv2.VideoCapture(source)
         while cap.isOpened():
             ret, frame = cap.read()
